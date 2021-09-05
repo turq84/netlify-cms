@@ -31,13 +31,6 @@ module.exports = {
     'no-console': [0],
     'react/prop-types': [0],
     'import/no-named-as-default': 0,
-    'import/order': [
-      'error',
-      {
-        'newlines-between': 'always',
-        groups: [['builtin', 'external'], ['internal', 'parent', 'sibling', 'index'], ['type']],
-      },
-    ],
     'no-duplicate-imports': 'error',
     '@emotion/no-vanilla': 'error',
     '@emotion/import-from-emotion': 'error',

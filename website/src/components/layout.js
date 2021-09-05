@@ -2,7 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, StaticQuery } from 'gatsby';
 import { ThemeProvider } from 'emotion-theming';
-
 import Header from './header';
 import Footer from './footer';
 import GlobalStyles from '../global-styles';
@@ -55,7 +54,8 @@ function Layout({ hasPageHero, children }) {
               <meta name="description" content={description} />
               <link
                 rel="stylesheet"
-                href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,900|Roboto+Mono:400,700"
+                // href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,900|Roboto+Mono:400,700"
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700"
               />
             </Helmet>
             <Header hasHeroBelow={hasPageHero} />

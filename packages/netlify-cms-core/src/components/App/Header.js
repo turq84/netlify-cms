@@ -12,12 +12,10 @@ import {
   StyledDropdownButton,
   colors,
   lengths,
-  shadows,
   buttons,
   zIndex,
 } from 'netlify-cms-ui-default';
 import { connect } from 'react-redux';
-
 import { SettingsDropdown } from '../UI';
 import { checkBackendStatus } from '../../actions/status';
 
@@ -28,21 +26,18 @@ const styles = {
 };
 
 function AppHeader(props) {
-  return (
-    <header
-      css={css`
-        ${shadows.dropMain};
-        position: sticky;
-        width: 100%;
-        top: 0;
-        background-color: ${colors.foreground};
-        z-index: ${zIndex.zIndex300};
-        height: ${lengths.topBarHeight};
-      `}
-      {...props}
-    />
-  );
+  return <Header {...props} />;
 }
+
+const Header = styled.header`
+  position: sticky;
+  width: 100%;
+  top: 0;
+  background-color: ${colors.foreground};
+  z-index: ${zIndex.zIndex300};
+  height: ${lengths.topBarHeight};
+  border-bottom: 1px solid #ececf1;
+`;
 
 const AppHeaderContent = styled.div`
   display: flex;
@@ -114,7 +109,7 @@ const AppHeaderNavList = styled.ul`
   list-style: none;
 `;
 
-class Header extends React.Component {
+class HeaderComponent extends React.Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
     collections: ImmutablePropTypes.map.isRequired,
@@ -169,6 +164,7 @@ class Header extends React.Component {
         <AppHeaderContent>
           <nav>
             <AppHeaderNavList>
+              <li>Logo</li>
               <li>
                 <AppHeaderNavLink
                   to="/"
@@ -233,4 +229,4 @@ const mapDispatchToProps = {
   checkBackendStatus,
 };
 
-export default connect(null, mapDispatchToProps)(translate()(Header));
+export default connect(null, mapDispatchToProps)(translate()(HeaderComponent));

@@ -1,4 +1,4 @@
-module.exports = {
+const theme = {
   colors: {
     white: '#fff',
     black: '#000',
@@ -16,6 +16,27 @@ module.exports = {
     darkerGreen: '#628013',
     shadeBlue: '#EFF0F4',
     blue: '#3A69C7',
+    border: '#ececf1',
+  },
+  spacing: {
+    none: '0px',
+    xxsmall: '2px',
+    xsmall: '4px',
+    small: '8px',
+    default: '16px',
+    medium: '24px',
+    large: '32px',
+    xlarge: '48px',
+    xxlarge: '64px',
+    xxxlarge: '104px',
+  },
+  sizing: {
+    xsmall: '8px',
+    small: '12px',
+    default: '16px',
+    medium: '24px',
+    large: '32px',
+    xlarge: '48px',
   },
   fontWeight: {
     thin: 100,
@@ -25,7 +46,7 @@ module.exports = {
     bold: 700,
     black: 900,
   },
-  fontFamily: "'Roboto', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif",
+  fontFamily: "'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif",
   fontsize: ['10px', '12px', '14px', '16px', '18px', '24px', '32px', '42px', '64px'],
   lineHeight: [1, 1.3, 1.7],
   space: [0, '4px', '8px', '16px', '24px', '40px', '64px', '104px', '152px'],
@@ -35,3 +56,15 @@ module.exports = {
     header: 100,
   },
 };
+
+// export type Theme = typeof theme;
+
+// export type Color = keyof Theme['colors'];
+
+// export type Spacing = keyof Theme['spacing'];
+
+// export type Sizing = keyof Theme['sizing'];
+
+// export type Typography = keyof Theme['typography'];
+
+export default theme;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-
 import theme from './theme';
 
 const globalStyles = css`
@@ -13,7 +12,7 @@ const globalStyles = css`
     font-family: ${theme.fontFamily};
     line-height: ${theme.lineHeight[2]};
     font-size: ${theme.fontsize[3]};
-    background: ${theme.colors.shadeBlue};
+    background: ${theme.colors.white};
     margin: 0;
     -webkit-font-smoothing: antialiased;
   }
@@ -35,7 +34,7 @@ const globalStyles = css`
   h4,
   h5,
   h6 {
-    line-height: ${theme.lineHeight[1]};
+    line-height: ${props => props.theme.lineHeight[1]};
     margin-top: 0;
     margin-bottom: 0.5em;
   }
@@ -58,25 +57,25 @@ const globalStyles = css`
   }
 
   a {
-    color: ${theme.colors.darkGreen};
+    color: ${props => props.theme.colors.darkGreen};
     text-decoration: none;
   }
 
   .gitter-open-chat-button {
     &,
     &:visited {
-      padding: ${theme.space[3]} ${theme.space[4]};
-      font-family: ${theme.fontFamily};
-      font-size: ${theme.fontsize[3]};
+      padding: ${props => props.theme.space[3]} ${props => props.theme.space[4]};
+      font-family: ${props => props.theme.fontFamily};
+      font-size: ${props => props.theme.fontsize[3]};
       letter-spacing: 0.5px;
       line-height: 1;
-      color: ${theme.colors.gray};
-      background-color: ${theme.colors.green};
+      color: ${props => props.theme.colors.gray};
+      background-color: ${props => props.theme.colors.green};
       box-shadow: 0 2px 16px 0 rgba(68, 74, 87, 0.15), 0 1px 4px 0 rgba(68, 74, 87, 0.3);
     }
 
     &:hover {
-      background-color: ${theme.colors.lightGreen};
+      background-color: ${props => props.theme.colors.lightGreen};
       box-shadow: 0 2px 16px 0 rgba(68, 74, 87, 0.25), 0 1px 4px 0 rgba(68, 74, 87, 0.5);
     }
 
@@ -86,7 +85,7 @@ const globalStyles = css`
     }
 
     &:active {
-      color: ${theme.colors.lightGray};
+      color: ${props => props.theme.colors.lightGray};
     }
   }
 `;
