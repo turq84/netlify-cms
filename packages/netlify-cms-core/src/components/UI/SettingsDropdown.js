@@ -4,7 +4,6 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { translate } from 'react-polyglot';
 import { Icon, Dropdown, DropdownItem, DropdownButton, colors } from 'netlify-cms-ui-default';
-
 import { stripProtocol } from '../../lib/urlHelper';
 
 const styles = {
@@ -36,7 +35,7 @@ const AvatarPlaceholderIcon = styled(Icon)`
 const AppHeaderSiteLink = styled.a`
   font-size: 14px;
   font-weight: 400;
-  color: #7b8290;
+  color: #10a37f;
   padding: 10px 16px;
 `;
 

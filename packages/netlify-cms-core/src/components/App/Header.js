@@ -6,7 +6,6 @@ import { css } from '@emotion/core';
 import { translate } from 'react-polyglot';
 import { NavLink } from 'react-router-dom';
 import {
-  Icon,
   Dropdown,
   DropdownItem,
   StyledDropdownButton,
@@ -18,12 +17,6 @@ import {
 import { connect } from 'react-redux';
 import { SettingsDropdown } from '../UI';
 import { checkBackendStatus } from '../../actions/status';
-
-const styles = {
-  buttonActive: css`
-    color: ${colors.active};
-  `,
-};
 
 function AppHeader(props) {
   return <Header {...props} />;
@@ -51,36 +44,23 @@ const AppHeaderContent = styled.div`
 const AppHeaderButton = styled.button`
   ${buttons.button};
   background: none;
-  color: #7b8290;
+  color: #000;
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   display: inline-flex;
   padding: 16px 20px;
   align-items: center;
 
-  ${Icon} {
-    margin-right: 4px;
-    color: #b3b9c4;
-  }
-
   &:hover,
   &:active,
   &:focus {
-    ${styles.buttonActive};
-
-    ${Icon} {
-      ${styles.buttonActive};
-    }
+    font-weight: 600;
   }
 
   ${props => css`
     &.${props.activeClassName} {
-      ${styles.buttonActive};
-
-      ${Icon} {
-        ${styles.buttonActive};
-      }
+      font-weight: 600;
     }
   `};
 `;
@@ -107,6 +87,7 @@ const AppHeaderNavList = styled.ul`
   display: flex;
   margin: 0;
   list-style: none;
+  align-items: center;
 `;
 
 class HeaderComponent extends React.Component {
@@ -167,18 +148,17 @@ class HeaderComponent extends React.Component {
               <li>Logo</li>
               <li>
                 <AppHeaderNavLink
-                  to="/"
+                  to="/dashboard"
                   activeClassName="header-link-active"
-                  isActive={(match, location) => location.pathname.startsWith('/collections/')}
+                  isActive={(match, location) => location.pathname.startsWith('/dashboard/')}
                 >
-                  <Icon type="page" />
-                  {t('app.header.content')}
+                  Dashboard
                 </AppHeaderNavLink>
               </li>
               {hasWorkflow && (
                 <li>
                   <AppHeaderNavLink to="/workflow" activeClassName="header-link-active">
-                    <Icon type="workflow" />
+                    {/* <Icon type="workflow" /> */}
                     {t('app.header.workflow')}
                   </AppHeaderNavLink>
                 </li>
@@ -186,7 +166,7 @@ class HeaderComponent extends React.Component {
               {showMediaButton && (
                 <li>
                   <AppHeaderButton onClick={openMediaLibrary}>
-                    <Icon type="media-alt" />
+                    {/* <Icon type="media-alt" /> */}
                     {t('app.header.media')}
                   </AppHeaderButton>
                 </li>
@@ -194,7 +174,7 @@ class HeaderComponent extends React.Component {
             </AppHeaderNavList>
           </nav>
           <AppHeaderActions>
-            {createableCollections.size > 0 && (
+            {/* {createableCollections.size > 0 && (
               <Dropdown
                 renderButton={() => (
                   <AppHeaderQuickNewButton> {t('app.header.quickAdd')}</AppHeaderQuickNewButton>
@@ -211,7 +191,7 @@ class HeaderComponent extends React.Component {
                   />
                 ))}
               </Dropdown>
-            )}
+            )} */}
             <SettingsDropdown
               displayUrl={displayUrl}
               isTestRepo={isTestRepo}

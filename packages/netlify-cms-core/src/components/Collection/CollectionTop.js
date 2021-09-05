@@ -25,7 +25,7 @@ const CollectionTopNewButton = styled(Link)`
   ${buttons.button};
   ${shadows.dropDeep};
   ${buttons.default};
-  ${buttons.gray};
+  background-color: #10a37f;
 
   padding: 0 30px;
 `;

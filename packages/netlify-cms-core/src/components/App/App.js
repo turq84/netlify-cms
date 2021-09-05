@@ -23,6 +23,7 @@ import Workflow from '../Workflow/Workflow';
 import Editor from '../Editor/Editor';
 import NotFoundPage from './NotFoundPage';
 import Header from './Header';
+import Dashboard from './Dashboard';
 
 TopBarProgress.config({
   barColors: {
@@ -171,7 +172,7 @@ class App extends React.Component {
       return this.authenticating(t);
     }
 
-    const defaultPath = getDefaultPath(collections);
+    const defaultPath = '/dashboard';
     const hasWorkflow = publishMode === EDITORIAL_WORKFLOW;
 
     return (
@@ -206,6 +207,8 @@ class App extends React.Component {
               to={defaultPath}
             />
             {hasWorkflow ? <Route path="/workflow" component={Workflow} /> : null}
+            <Route path="/dashboard" component={Dashboard} />
+
             <RouteInCollection
               exact
               collections={collections}
