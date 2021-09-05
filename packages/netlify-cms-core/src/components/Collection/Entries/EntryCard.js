@@ -2,8 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { colors, colorsRaw, components, lengths, zIndex } from 'netlify-cms-ui-default';
-
+import { colors, components, lengths, zIndex } from 'netlify-cms-ui-default';
 import { boundGetAsset } from '../../../actions/media';
 import { VIEW_STYLE_LIST, VIEW_STYLE_GRID } from '../../../constants/collectionViews';
 import { selectIsLoadingAsset } from '../../../reducers/medias';
@@ -15,35 +14,48 @@ const ListCard = styled.li`
   margin-left: 12px;
   margin-bottom: 10px;
   overflow: hidden;
+  background-color: #ececf1;
+  transition: all 0.25s linear 0s;
+
+  &:hover {
+    background-color: #fff;
+    box-shadow: 9px 9px 22px -2px rgba(163, 177, 198, 0.5), -9px -9px 18px hsla(0, 0%, 100%, 0.52);
+    transition: all 0.25s linear 0s;
+  }
 `;
 
 const ListCardLink = styled(Link)`
   display: block;
   max-width: 100%;
   padding: 16px 22px;
+
   &:hover {
     background-color: ${colors.foreground};
   }
 `;
 
 const GridCard = styled.li`
-  ${components.card};
+  border-radius: 5px;
   flex: 0 0 335px;
   height: 240px;
   overflow: hidden;
   margin-left: 12px;
   margin-bottom: 16px;
+  background-color: #ececf1;
+  transition: all 0.25s linear 0s;
+
+  &:hover {
+    background-color: #fff;
+    box-shadow: 9px 9px 22px -2px rgba(163, 177, 198, 0.5), -9px -9px 18px hsla(0, 0%, 100%, 0.52);
+    transition: all 0.25s linear 0s;
+  }
 `;
 
 const GridCardLink = styled(Link)`
   display: block;
   height: 100%;
+  flex: 0 0 25%;
   outline-offset: -2px;
-  &,
-  &:hover {
-    background-color: ${colors.foreground};
-    color: ${colors.text};
-  }
 `;
 
 const CollectionLabel = styled.h2`
@@ -75,7 +87,6 @@ const CardBody = styled.div`
     left: -20%;
     height: 140%;
     width: 140%;
-    box-shadow: inset 0 -15px 24px ${colorsRaw.white};
   }
 `;
 

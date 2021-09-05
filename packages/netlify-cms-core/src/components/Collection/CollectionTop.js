@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 import { components, buttons, shadows } from 'netlify-cms-ui-default';
 
 const CollectionTopContainer = styled.div`
-  ${components.cardTop};
-  margin-bottom: 22px;
+  border-bottom: 1px solid #ececf1;
+  padding: 20px 0px;
+  margin-bottom: 28px;
 `;
 
 const CollectionTopRow = styled.div`
@@ -18,20 +19,29 @@ const CollectionTopRow = styled.div`
 `;
 
 const CollectionTopHeading = styled.h1`
-  ${components.cardTopHeading};
+  text-transform: uppercase;
+  font-size: 24x;
+  letter-spacing: 1px;
+  line-height: 24px;
+  font-weight: 600;
 `;
 
 const CollectionTopNewButton = styled(Link)`
   ${buttons.button};
-  ${shadows.dropDeep};
   ${buttons.default};
-  background-color: #10a37f;
-
+  background-color: #f9cfcf;
+  color: #c23539;
   padding: 0 30px;
+  transition: all 0.25s linear 0s;
+
+  &:hover {
+    ${shadows.dropDeep};
+    transition: all 0.25s linear 0s;
+  }
 `;
 
 const CollectionTopDescription = styled.p`
-  ${components.cardTopDescription};
+  width: 50%;
   margin-bottom: 0;
 `;
 

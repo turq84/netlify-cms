@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const SearchContainer = styled.div`
-  margin: 0 12px;
   position: relative;
 
   ${Icon} {
@@ -18,6 +17,7 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     pointer-events: none;
+    color: #000;
   }
 `;
 
@@ -30,16 +30,12 @@ const InputContainer = styled.div`
 const SearchInput = styled.input`
   background-color: #fff;
   border-radius: ${lengths.borderRadius};
-  font-size: 14px;
+  font-size: 18px;
   padding: 10px 6px 10px 32px;
   width: 100%;
   position: relative;
   z-index: ${zIndex.zIndex1};
-
-  &:focus {
-    outline: none;
-    box-shadow: inset 0 0 0 2px ${colorsRaw.blue};
-  }
+  font-weight: 300;
 `;
 
 const SuggestionsContainer = styled.div`
@@ -58,7 +54,7 @@ const Suggestions = styled.ul`
   background-color: #fff;
   border-radius: ${lengths.borderRadius};
   border: 1px solid ${colors.textFieldBorder};
-  z-index: ${zIndex.zIndex1};
+  z-index: ${zIndex.zIndex2};
 `;
 
 const SuggestionHeader = styled.li`
@@ -67,10 +63,9 @@ const SuggestionHeader = styled.li`
   color: ${colors.text};
 `;
 
-const SuggestionItem = styled.li(
-  ({ isActive }) => `
-  color: ${isActive ? colors.active : colorsRaw.grayDark};
-  background-color: ${isActive ? colors.activeBackground : 'inherit'};
+const SuggestionItem = styled.li`
+  color: ${colorsRaw.grayDark};
+  background-color: inherit;
   padding: 6px 6px 6px 32px;
   cursor: pointer;
   position: relative;
@@ -79,8 +74,7 @@ const SuggestionItem = styled.li(
     color: ${colors.active};
     background-color: ${colors.activeBackground};
   }
-`,
-);
+`;
 
 const SuggestionDivider = styled.div`
   width: 100%;
@@ -88,7 +82,7 @@ const SuggestionDivider = styled.div`
 
 class CollectionSearch extends React.Component {
   static propTypes = {
-    collections: ImmutablePropTypes.map.isRequired,
+    // collections: ImmutablePropTypes.map.isRequired,
     collection: ImmutablePropTypes.map,
     searchTerm: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired,
@@ -189,7 +183,7 @@ class CollectionSearch extends React.Component {
 
   render() {
     const { collections, t } = this.props;
-    const { suggestionsVisible, selectedCollectionIdx, query } = this.state;
+    const { suggestionsVisible, query } = this.state;
     return (
       <SearchContainer
         onBlur={() => this.toggleSuggestions(false)}
@@ -210,7 +204,6 @@ class CollectionSearch extends React.Component {
             <Suggestions>
               <SuggestionHeader>{t('collection.sidebar.searchIn')}</SuggestionHeader>
               <SuggestionItem
-                isActive={selectedCollectionIdx === -1}
                 onClick={e => this.handleSuggestionClick(e, -1)}
                 onMouseDown={e => e.preventDefault()}
               >
@@ -220,7 +213,6 @@ class CollectionSearch extends React.Component {
               {collections.toIndexedSeq().map((collection, idx) => (
                 <SuggestionItem
                   key={idx}
-                  isActive={idx === selectedCollectionIdx}
                   onClick={e => this.handleSuggestionClick(e, idx)}
                   onMouseDown={e => e.preventDefault()}
                 >

@@ -33,13 +33,14 @@ const colorsRaw = {
   grayLight: '#eff0f4',
   gray: '#798291',
   grayDark: '#313d3e',
-  blue: '#3a69c7',
-  blueLight: '#e8f5fe',
+  blue: '#2e95d3',
+  blueLight: '#cbe4f4',
   green: '#005614',
   greenLight: '#caef6f',
   brown: '#754e00',
   yellow: '#ffee9c',
-  red: '#ff003b',
+  red: '#c23539',
+  bgColorRed: '#f9cfcf',
   redLight: '#fcefea',
   purple: '#70399f',
   purpleLight: '#f6d8ff',
@@ -95,6 +96,8 @@ const lengths = {
 const borders = {
   textField: `solid  ${lengths.borderWidth} ${colors.textFieldBorder}`,
 };
+
+const MAX_WIDTH = '1440px';
 
 const transitions = {
   main: '.2s ease',
@@ -305,8 +308,6 @@ const components = {
   `,
   cardTop: css`
     ${card};
-    width: ${lengths.topCardWidth};
-    max-width: 100%;
     padding: 18px 20px;
     margin-bottom: 28px;
   `,
@@ -320,7 +321,7 @@ const components = {
   cardTopDescription: css`
     max-width: 480px;
     color: ${colors.text};
-    font-size: 14px;
+    // font-size: 14px;
     margin-top: 8px;
   `,
   objectWidgetTopBarContainer: css`
@@ -472,6 +473,8 @@ function GlobalStyles() {
           font-size: 15px;
           line-height: 1.5;
           margin-top: 0;
+          font-weight: 300;
+          color: #000;
         }
 
         h1,
@@ -487,6 +490,12 @@ function GlobalStyles() {
           font-size: 24px;
           letter-spacing: 0.4px;
           color: ${colors.textLead};
+        }
+
+        p {
+          font-size: 18px;
+          font-weight: 300;
+          color: #000;
         }
 
         a,

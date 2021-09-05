@@ -5,15 +5,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { translate } from 'react-polyglot';
 import { NavLink } from 'react-router-dom';
-import {
-  Dropdown,
-  DropdownItem,
-  StyledDropdownButton,
-  colors,
-  lengths,
-  buttons,
-  zIndex,
-} from 'netlify-cms-ui-default';
+import { StyledDropdownButton, colors, lengths, buttons, zIndex } from 'netlify-cms-ui-default';
 import { connect } from 'react-redux';
 import { SettingsDropdown } from '../UI';
 import { checkBackendStatus } from '../../actions/status';

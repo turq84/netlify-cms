@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { lengths } from 'netlify-cms-ui-default';
-
 import ViewStyleControl from './ViewStyleControl';
 import SortControl from './SortControl';
 import FilterControl from './FilterControl';
@@ -11,9 +9,6 @@ const CollectionControlsContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  margin-top: 22px;
-  width: ${lengths.topCardWidth};
-  max-width: 100%;
 
   & > div {
     margin-left: 6px;

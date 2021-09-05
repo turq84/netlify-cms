@@ -17,6 +17,8 @@ const theme = {
     shadeBlue: '#EFF0F4',
     blue: '#3A69C7',
     border: '#ececf1',
+    red: '#c23539',
+    bgColorRed: '#f9cfcf',
   },
   spacing: {
     none: '0px',

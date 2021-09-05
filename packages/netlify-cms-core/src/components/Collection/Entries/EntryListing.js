@@ -4,17 +4,15 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import styled from '@emotion/styled';
 import { Waypoint } from 'react-waypoint';
 import { Map } from 'immutable';
-
 import { selectFields, selectInferedField } from '../../../reducers/collections';
 import EntryCard from './EntryCard';
 
 const CardsGrid = styled.ul`
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   list-style-type: none;
-  margin-left: -12px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  justify-content: space-around;
 `;
 
 export default class EntryListing extends React.Component {

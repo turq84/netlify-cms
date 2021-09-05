@@ -57,7 +57,7 @@ export const DeleteButton = styled.button`
 
 export const InsertButton = styled.button`
   ${styles.button};
-  ${buttons.green};
+  background-color: #10a37f;
 `;
 
 const ActionButton = styled.button`

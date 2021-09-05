@@ -7,7 +7,7 @@ import { translate } from 'react-polyglot';
 import { lengths, components } from 'netlify-cms-ui-default';
 
 import { getNewEntryUrl } from '../../lib/urlHelper';
-import Sidebar from './Sidebar';
+import Search from './Search';
 import CollectionTop from './CollectionTop';
 import EntriesCollection from './Entries/EntriesCollection';
 import EntriesSearch from './Entries/EntriesSearch';
@@ -30,16 +30,25 @@ const CollectionContainer = styled.div`
 `;
 
 const CollectionMain = styled.main`
-  padding-left: 280px;
+  // padding-left: 280px;
 `;
 
 const SearchResultContainer = styled.div`
-  ${components.cardTop};
-  margin-bottom: 22px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #ececf1;
 `;
 
 const SearchResultHeading = styled.h1`
   ${components.cardTopHeading};
+`;
+
+const SearchFilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  margin: auto;
 `;
 
 export class Collection extends React.Component {
@@ -109,39 +118,49 @@ export class Collection extends React.Component {
 
     return (
       <CollectionContainer>
-        <Sidebar
-          collections={collections}
-          collection={(!isSearchResults || isSingleSearchResult) && collection}
-          isSearchEnabled={isSearchEnabled}
-          searchTerm={searchTerm}
-          filterTerm={filterTerm}
-        />
         <CollectionMain>
           {isSearchResults ? (
             <SearchResultContainer>
               <SearchResultHeading>
                 {t(searchResultKey, { searchTerm, collection: collection.get('label') })}
               </SearchResultHeading>
+              <Search
+                collections={collections}
+                collection={(!isSearchResults || isSingleSearchResult) && collection}
+                isSearchEnabled={isSearchEnabled}
+                searchTerm={searchTerm}
+                filterTerm={filterTerm}
+              />
             </SearchResultContainer>
           ) : (
             <>
               <CollectionTop collection={collection} newEntryUrl={newEntryUrl} />
-              <CollectionControls
-                viewStyle={viewStyle}
-                onChangeViewStyle={onChangeViewStyle}
-                sortableFields={sortableFields}
-                onSortClick={onSortClick}
-                sort={sort}
-                viewFilters={viewFilters}
-                viewGroups={viewGroups}
-                t={t}
-                onFilterClick={onFilterClick}
-                onGroupClick={onGroupClick}
-                filter={filter}
-                group={group}
-              />
+              <SearchFilterContainer>
+                <Search
+                  collections={collections}
+                  collection={(!isSearchResults || isSingleSearchResult) && collection}
+                  isSearchEnabled={isSearchEnabled}
+                  searchTerm={searchTerm}
+                  filterTerm={filterTerm}
+                />
+                <CollectionControls
+                  viewStyle={viewStyle}
+                  onChangeViewStyle={onChangeViewStyle}
+                  sortableFields={sortableFields}
+                  onSortClick={onSortClick}
+                  sort={sort}
+                  viewFilters={viewFilters}
+                  viewGroups={viewGroups}
+                  t={t}
+                  onFilterClick={onFilterClick}
+                  onGroupClick={onGroupClick}
+                  filter={filter}
+                  group={group}
+                />
+              </SearchFilterContainer>
             </>
           )}
+
           {isSearchResults ? this.renderEntriesSearch() : this.renderEntriesCollection()}
         </CollectionMain>
       </CollectionContainer>

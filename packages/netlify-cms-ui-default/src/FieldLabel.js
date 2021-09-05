@@ -1,32 +1,9 @@
 import styled from '@emotion/styled';
-
-import { colors, colorsRaw, transitions, text } from './styles';
-
-const stateColors = {
-  default: {
-    background: colors.textFieldBorder,
-    text: colors.controlLabel,
-  },
-  active: {
-    background: colors.active,
-    text: colors.textLight,
-  },
-  error: {
-    background: colors.errorText,
-    text: colorsRaw.white,
-  },
-};
-
-function getStateColors({ isActive, hasErrors }) {
-  if (hasErrors) return stateColors.error;
-  if (isActive) return stateColors.active;
-  return stateColors.default;
-}
+import { transitions, text } from './styles';
 
 const FieldLabel = styled.label`
   ${text.fieldLabel};
-  color: ${props => getStateColors(props).text};
-  background-color: ${props => getStateColors(props).background};
+  color: #000;
   display: inline-block;
   border: 0;
   border-radius: 3px 3px 0 0;
