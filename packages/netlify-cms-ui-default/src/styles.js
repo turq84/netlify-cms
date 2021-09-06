@@ -35,15 +35,16 @@ const colorsRaw = {
   grayDark: '#313d3e',
   blue: '#2e95d3',
   blueLight: '#cbe4f4',
-  green: '#005614',
-  greenLight: '#caef6f',
+  green: '#10a37f',
+  greenLight: '#d2f4d3',
   brown: '#754e00',
-  yellow: '#ffee9c',
+  yellow: '#f4ac36',
+  yellowLight: '#fceacd',
   red: '#c23539',
   bgColorRed: '#f9cfcf',
   redLight: '#fcefea',
-  purple: '#70399f',
-  purpleLight: '#f6d8ff',
+  purple: '#5436da',
+  purpleLight: '#d2cff2',
   teal: '#17a2b8',
   tealLight: '#ddf5f9',
 };
@@ -51,8 +52,8 @@ const colorsRaw = {
 const colors = {
   statusDraftText: colorsRaw.purple,
   statusDraftBackground: colorsRaw.purpleLight,
-  statusReviewText: colorsRaw.brown,
-  statusReviewBackground: colorsRaw.yellow,
+  statusReviewText: colorsRaw.yellow,
+  statusReviewBackground: colorsRaw.yellowLight,
   statusReadyText: colorsRaw.green,
   statusReadyBackground: colorsRaw.greenLight,
   text: colorsRaw.gray,
@@ -187,8 +188,9 @@ const buttons = {
   default: css`
     height: 36px;
     line-height: 36px;
-    font-weight: 500;
+    font-weight: 300;
     padding: 0 15px;
+    font-size: 16px;
     background-color: ${colorsRaw.gray};
     color: ${colorsRaw.white};
   `,
@@ -307,12 +309,11 @@ const components = {
     height: 2.28571429rem;
   `,
   cardTop: css`
-    ${card};
     padding: 18px 20px;
     margin-bottom: 28px;
   `,
   cardTopHeading: css`
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
     line-height: 37px;
     margin: 0;
@@ -321,7 +322,6 @@ const components = {
   cardTopDescription: css`
     max-width: 480px;
     color: ${colors.text};
-    // font-size: 14px;
     margin-top: 8px;
   `,
   objectWidgetTopBarContainer: css`

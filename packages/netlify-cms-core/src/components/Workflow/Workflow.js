@@ -12,7 +12,6 @@ import {
   Loader,
   lengths,
   components,
-  shadows,
 } from 'netlify-cms-ui-default';
 
 import { createNewEntry } from '../../actions/collections';
@@ -27,8 +26,9 @@ import { EDITORIAL_WORKFLOW, status } from '../../constants/publishModes';
 import WorkflowList from './WorkflowList';
 
 const WorkflowContainer = styled.div`
-  padding: ${lengths.pageMargin} 0;
   height: 100vh;
+  width: 1072px;
+  margin: auto;
 `;
 
 const WorkflowTop = styled.div`
@@ -40,7 +40,15 @@ const WorkflowTopRow = styled.div`
   justify-content: space-between;
 
   span[role='button'] {
-    ${shadows.dropDeep};
+    background-color: #10a37f;
+    color: #fff;
+    transition: all 0.25s linear 0s;
+
+    &:hover {
+      box-shadow: 0 4px 12px 0 rgb(68 74 87 / 15%), 0 1px 3px 0 rgb(68 74 87 / 25%);
+      -webkit-transition: all 0.25s linear 0s;
+      transition: all 0.25s linear 0s;
+    }
   }
 `;
 

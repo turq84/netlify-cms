@@ -52,7 +52,8 @@ export const UploadButton = styled(FileUploadButton)`
 
 export const DeleteButton = styled.button`
   ${styles.button};
-  ${buttons.lightRed};
+  background-color: #f9cfcf;
+  color: #c23539;
 `;
 
 export const InsertButton = styled.button`

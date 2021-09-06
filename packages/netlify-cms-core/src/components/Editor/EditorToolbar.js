@@ -189,7 +189,8 @@ const ToolbarButton = styled.button`
 `;
 
 const DeleteButton = styled(ToolbarButton)`
-  ${buttons.lightRed};
+  background-color: #f9cfcf;
+  color: #c23539;
 `;
 
 const SaveButton = styled(ToolbarButton)`
@@ -208,7 +209,8 @@ const PublishedButton = styled(ToolbarButton)`
 `;
 
 const PublishButton = styled(DropdownButton)`
-  background-color: ${colorsRaw.teal};
+  background-color: #d2f4d3;
+  color: #10a37f;
 `;
 
 const StatusButton = styled(DropdownButton)`

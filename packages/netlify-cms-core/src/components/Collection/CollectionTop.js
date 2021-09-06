@@ -29,8 +29,8 @@ const CollectionTopHeading = styled.h1`
 const CollectionTopNewButton = styled(Link)`
   ${buttons.button};
   ${buttons.default};
-  background-color: #f9cfcf;
-  color: #c23539;
+  background-color: #10a37f;
+  color: #fff;
   padding: 0 30px;
   transition: all 0.25s linear 0s;
 

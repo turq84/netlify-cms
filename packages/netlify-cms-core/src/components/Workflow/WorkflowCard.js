@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { translate } from 'react-polyglot';
 import { Link } from 'react-router-dom';
-import { components, colors, colorsRaw, transitions, buttons } from 'netlify-cms-ui-default';
+import { components, colors, transitions, buttons } from 'netlify-cms-ui-default';
 
 const styles = {
   text: css`
@@ -70,15 +70,16 @@ const CardButtonContainer = styled.div`
 
 const DeleteButton = styled.button`
   ${styles.button};
-  background-color: ${colorsRaw.redLight};
-  color: ${colorsRaw.red};
+  background-color: #f9cfcf;
+  color: #c23539;
+  font-weight: 300;
   margin-right: 6px;
 `;
 
 const PublishButton = styled.button`
   ${styles.button};
-  background-color: ${colorsRaw.teal};
-  color: ${colors.textLight};
+  background-color: #d2f4d3;
+  color: #10a37f;
   margin-left: 6px;
 
   &[disabled] {
