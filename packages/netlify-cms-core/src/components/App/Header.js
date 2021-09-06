@@ -16,12 +16,13 @@ function AppHeader(props) {
 
 const Header = styled.header`
   position: sticky;
-  width: 100%;
   top: 0;
   background-color: ${colors.foreground};
   z-index: ${zIndex.zIndex300};
   height: ${lengths.topBarHeight};
-  border-bottom: 1px solid #ececf1;
+  // border-bottom: 1px solid #ececf1;
+  width: 1072px;
+  margin: auto;
 `;
 
 const AppHeaderContent = styled.div`
@@ -166,24 +167,6 @@ class HeaderComponent extends React.Component {
             </AppHeaderNavList>
           </nav>
           <AppHeaderActions>
-            {/* {createableCollections.size > 0 && (
-              <Dropdown
-                renderButton={() => (
-                  <AppHeaderQuickNewButton> {t('app.header.quickAdd')}</AppHeaderQuickNewButton>
-                )}
-                dropdownTopOverlap="30px"
-                dropdownWidth="160px"
-                dropdownPosition="left"
-              >
-                {createableCollections.map(collection => (
-                  <DropdownItem
-                    key={collection.get('name')}
-                    label={collection.get('label_singular') || collection.get('label')}
-                    onClick={() => this.handleCreatePostClick(collection.get('name'))}
-                  />
-                ))}
-              </Dropdown>
-            )} */}
             <SettingsDropdown
               displayUrl={displayUrl}
               isTestRepo={isTestRepo}

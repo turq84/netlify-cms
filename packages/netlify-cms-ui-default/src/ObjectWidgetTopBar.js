@@ -42,10 +42,18 @@ const ExpandButton = styled.button`
 
 const AddButton = styled.button`
   ${buttons.button}
-  ${buttons.widget}
+  padding: 5px 10px;
+  background-color: #d2f4d3;
+  color: #10a37f;
+  transition: all 0.25s linear 0s;
 
   ${Icon} {
     margin-left: 6px;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 12px 0 rgb(68 74 87 / 15%), 0 1px 3px 0 rgb(68 74 87 / 25%);
+    transition: all 0.25s linear 0s;
   }
 `;
 

@@ -487,9 +487,13 @@ function GlobalStyles() {
         }
 
         h1 {
-          font-size: 24px;
+          font-size: 32px;
           letter-spacing: 0.4px;
-          color: ${colors.textLead};
+          color: #000;
+        }
+
+        h2 {
+          font-size: 24px;
         }
 
         p {

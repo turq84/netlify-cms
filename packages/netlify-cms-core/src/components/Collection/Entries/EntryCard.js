@@ -36,11 +36,11 @@ const ListCardLink = styled(Link)`
 
 const GridCard = styled.li`
   border-radius: 5px;
-  flex: 0 0 335px;
-  height: 240px;
+  flex: 0 0 28%;
+  height: max-content;
+  max-height: 240px;
   overflow: hidden;
-  margin-left: 12px;
-  margin-bottom: 16px;
+  margin: 12px 0px;
   background-color: #ececf1;
   transition: all 0.25s linear 0s;
 
@@ -54,7 +54,6 @@ const GridCard = styled.li`
 const GridCardLink = styled(Link)`
   display: block;
   height: 100%;
-  flex: 0 0 25%;
   outline-offset: -2px;
 `;
 
@@ -68,8 +67,9 @@ const ListCardTitle = styled.h2`
   margin-bottom: 0;
 `;
 
-const CardHeading = styled.h2`
-  margin: 0 0 2px;
+const CardHeading = styled.p`
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 const CardBody = styled.div`

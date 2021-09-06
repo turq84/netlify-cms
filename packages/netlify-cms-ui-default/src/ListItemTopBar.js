@@ -14,9 +14,9 @@ const TopBar = styled.div`
 `;
 
 const TopBarButton = styled.button`
-  ${buttons.button};
-  color: ${colors.controlLabel};
-  background: transparent;
+  border-radius: 0px;
+  border: none;
+  background: #fff;
   font-size: 16px;
   line-height: 1;
   padding: 0;
@@ -26,6 +26,11 @@ const TopBarButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${colors.textFieldBorder};
+
+  &:hover {
+    background-color: #fff;
+  }
 `;
 
 const TopBarButtonSpan = TopBarButton.withComponent('span');
@@ -37,7 +42,7 @@ const DragIconContainer = styled(TopBarButtonSpan)`
 
 function DragHandle({ dragHandleHOC }) {
   const Handle = dragHandleHOC(() => (
-    <DragIconContainer>
+    <DragIconContainer className={'accordion'}>
       <Icon type="drag-handle" size="small" />
     </DragIconContainer>
   ));
@@ -48,13 +53,13 @@ function ListItemTopBar({ className, collapsed, onCollapseToggle, onRemove, drag
   return (
     <TopBar className={className}>
       {onCollapseToggle ? (
-        <TopBarButton onClick={onCollapseToggle}>
+        <TopBarButton onClick={onCollapseToggle} className={'accordion'}>
           <Icon type="chevron" size="small" direction={collapsed ? 'right' : 'down'} />
         </TopBarButton>
       ) : null}
       {dragHandleHOC ? <DragHandle dragHandleHOC={dragHandleHOC} /> : null}
       {onRemove ? (
-        <TopBarButton onClick={onRemove}>
+        <TopBarButton onClick={onRemove} className={'accordion'}>
           <Icon type="close" size="small" />
         </TopBarButton>
       ) : null}

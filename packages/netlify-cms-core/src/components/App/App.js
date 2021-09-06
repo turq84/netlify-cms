@@ -207,7 +207,13 @@ class App extends React.Component {
               to={defaultPath}
             />
             {hasWorkflow ? <Route path="/workflow" component={Workflow} /> : null}
-            <Route path="/dashboard" component={Dashboard} />
+            {/* <Route path="/dashboard" component={Dashboard} /> */}
+            <Route
+              exact
+              collections={collections}
+              path="/dashboard"
+              render={props => <Dashboard {...props} />}
+            />
 
             <RouteInCollection
               exact

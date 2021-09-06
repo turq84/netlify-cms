@@ -26,7 +26,18 @@ import {
 
 const ObjectControl = NetlifyCmsWidgetObject.controlComponent;
 
-const ListItem = styled.div();
+const ListItem = styled.div`
+  transition: all 0.25s linear 0s;
+
+  &:hover {
+    box-shadow: 9px 9px 22px -2px rgba(163, 177, 198, 0.5), -9px -9px 18px hsla(0, 0%, 100%, 0.52);
+    transition: all 0.25s linear 0s;
+
+    .accordion {
+      background-color: #fff;
+    }
+  }
+`;
 
 const SortableListItem = SortableElement(ListItem);
 
@@ -38,9 +49,12 @@ const NestedObjectLabel = styled.div`
   display: ${props => (props.collapsed ? 'block' : 'none')};
   border-top: 0;
   color: ${props => (props.error ? colors.errorText : 'inherit')};
-  background-color: ${colors.textFieldBorder};
   padding: 13px;
-  border-radius: 0 0 ${lengths.borderRadius} ${lengths.borderRadius};
+  background-color: ${colors.textFieldBorder};
+
+  &:hover {
+    background-color: #fff;
+  }
 `;
 
 const styleStrings = {
@@ -547,7 +561,7 @@ export default class ListControl extends React.Component {
           dragHandleHOC={SortableHandle}
           data-testid={`styled-list-item-top-bar-${key}`}
         />
-        <NestedObjectLabel collapsed={collapsed} error={hasError}>
+        <NestedObjectLabel collapsed={collapsed} error={hasError} className={'accordion'}>
           {this.objectLabel(item)}
         </NestedObjectLabel>
         <ClassNames>
@@ -597,7 +611,7 @@ export default class ListControl extends React.Component {
           onRemove={partial(this.handleRemove, index, key)}
           dragHandleHOC={SortableHandle}
         />
-        <NestedObjectLabel collapsed={true} error={true}>
+        <NestedObjectLabel collapsed={true} error={true} className={'accordion'}>
           {errorMessage}
         </NestedObjectLabel>
       </SortableListItem>
