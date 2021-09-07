@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { translate } from 'react-polyglot';
 import { NavLink } from 'react-router-dom';
-import { StyledDropdownButton, colors, lengths, buttons, zIndex } from 'netlify-cms-ui-default';
+import { colors, lengths, buttons, zIndex } from 'netlify-cms-ui-default';
 import { connect } from 'react-redux';
 import { SettingsDropdown } from '../UI';
 import { checkBackendStatus } from '../../actions/status';
@@ -20,7 +20,6 @@ const Header = styled.header`
   background-color: ${colors.foreground};
   z-index: ${zIndex.zIndex300};
   height: ${lengths.topBarHeight};
-  // border-bottom: 1px solid #ececf1;
   width: 1072px;
   margin: auto;
 `;
@@ -65,17 +64,6 @@ const AppHeaderActions = styled.div`
   align-items: center;
 `;
 
-const AppHeaderQuickNewButton = styled(StyledDropdownButton)`
-  ${buttons.button};
-  ${buttons.medium};
-  ${buttons.gray};
-  margin-right: 8px;
-
-  &:after {
-    top: 11px;
-  }
-`;
-
 const AppHeaderNavList = styled.ul`
   display: flex;
   margin: 0;
@@ -109,17 +97,16 @@ class HeaderComponent extends React.Component {
     clearInterval(this.intervalId);
   }
 
-  handleCreatePostClick = collectionName => {
-    const { onCreateEntryClick } = this.props;
-    if (onCreateEntryClick) {
-      onCreateEntryClick(collectionName);
-    }
-  };
+  // handleCreatePostClick = collectionName => {
+  //   const { onCreateEntryClick } = this.props;
+  //   if (onCreateEntryClick) {
+  //     onCreateEntryClick(collectionName);
+  //   }
+  // };
 
   render() {
     const {
       user,
-      collections,
       onLogoutClick,
       openMediaLibrary,
       hasWorkflow,
@@ -128,10 +115,6 @@ class HeaderComponent extends React.Component {
       t,
       showMediaButton,
     } = this.props;
-
-    const createableCollections = collections
-      .filter(collection => collection.get('create'))
-      .toList();
 
     return (
       <AppHeader>
@@ -151,7 +134,6 @@ class HeaderComponent extends React.Component {
               {hasWorkflow && (
                 <li>
                   <AppHeaderNavLink to="/workflow" activeClassName="header-link-active">
-                    {/* <Icon type="workflow" /> */}
                     {t('app.header.workflow')}
                   </AppHeaderNavLink>
                 </li>
@@ -159,7 +141,6 @@ class HeaderComponent extends React.Component {
               {showMediaButton && (
                 <li>
                   <AppHeaderButton onClick={openMediaLibrary}>
-                    {/* <Icon type="media-alt" /> */}
                     {t('app.header.media')}
                   </AppHeaderButton>
                 </li>

@@ -9,7 +9,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Notifs } from 'redux-notifications';
 import TopBarProgress from 'react-topbar-progress-indicator';
 import { Loader, colors } from 'netlify-cms-ui-default';
-
 import { loginUser, logoutUser } from '../../actions/auth';
 import { currentBackend } from '../../backend';
 import { createNewEntry } from '../../actions/collections';
@@ -22,7 +21,8 @@ import Collection from '../Collection/Collection';
 import Workflow from '../Workflow/Workflow';
 import Editor from '../Editor/Editor';
 import NotFoundPage from './NotFoundPage';
-import Header from './Header';
+import Header from '../Header/index';
+import MobileHeader from '../Header/MobileHeader';
 import Dashboard from './Dashboard';
 
 TopBarProgress.config({
@@ -38,6 +38,11 @@ const AppMainContainer = styled.div`
   min-width: 800px;
   max-width: 1440px;
   margin: 0 auto;
+
+  // @media (max-width: 550px) {
+  //   width: 100%;
+  //   max-width: 100%;
+  // }
 `;
 
 const ErrorContainer = styled.div`
@@ -189,6 +194,17 @@ class App extends React.Component {
           isTestRepo={config.backend.name === 'test-repo'}
           showMediaButton={showMediaButton}
         />
+        {/* <MobileHeader
+          user={user}
+          collections={collections}
+          onCreateEntryClick={createNewEntry}
+          onLogoutClick={logoutUser}
+          openMediaLibrary={openMediaLibrary}
+          hasWorkflow={hasWorkflow}
+          displayUrl={config.display_url}
+          isTestRepo={config.backend.name === 'test-repo'}
+          showMediaButton={showMediaButton}
+        /> */}
         <AppMainContainer>
           {isFetching && <TopBarProgress />}
           <Switch>
@@ -207,14 +223,12 @@ class App extends React.Component {
               to={defaultPath}
             />
             {hasWorkflow ? <Route path="/workflow" component={Workflow} /> : null}
-            {/* <Route path="/dashboard" component={Dashboard} /> */}
             <Route
               exact
               collections={collections}
               path="/dashboard"
               render={props => <Dashboard {...props} />}
             />
-
             <RouteInCollection
               exact
               collections={collections}

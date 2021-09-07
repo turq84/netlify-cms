@@ -157,10 +157,6 @@ export default translate()(ConnectedCollection);
 const Container = styled.div`
   width: 1072px;
   margin: 50px auto;
-
-  @media (min-width: 550px) {
-    width: 100%;
-  }
 `;
 
 const CollectionCardContainer = styled.div`
@@ -169,10 +165,10 @@ const CollectionCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
 
-  @media (min-width: 550px) {
-    flex-direction: column;
-    width: 100%;
-  }
+  // @media (max-width: 550px) {
+  //   flex-direction: column;
+  //   width: 100%;
+  // }
 `;
 
 const CollectionCard = styled(NavLink)`
@@ -190,9 +186,9 @@ const CollectionCard = styled(NavLink)`
     border: 1px solid transparent;
   }
 
-  @media (min-width: 550px) {
-    flex: 0 0 100%;
-  }
+  // @media (max-width: 550px) {
+  //   flex: 0 0 100%;
+  // }
 `;
 
 const CollectionTitle = styled.div`
