@@ -9,6 +9,7 @@ import { colors, lengths, buttons, zIndex } from 'netlify-cms-ui-default';
 import { connect } from 'react-redux';
 import { SettingsDropdown } from '../UI';
 import { checkBackendStatus } from '../../actions/status';
+import { earnerCMS as EarnerCMS } from './SVG';
 
 function AppHeader(props) {
   return <Header {...props} />;
@@ -29,7 +30,6 @@ const AppHeaderContent = styled.div`
   justify-content: space-between;
   min-width: 800px;
   max-width: 1440px;
-  padding: 0 12px;
   margin: 0 auto;
 `;
 
@@ -43,16 +43,19 @@ const AppHeaderButton = styled.button`
   display: inline-flex;
   padding: 16px 20px;
   align-items: center;
+  transition: all 0.25s linear 0s;
 
   &:hover,
   &:active,
   &:focus {
-    font-weight: 600;
+    color: #10a37f;
+    transition: all 0.25s linear 0s;
   }
 
   ${props => css`
     &.${props.activeClassName} {
-      font-weight: 600;
+      color: #10a37f;
+      transition: all 0.25s linear 0s;
     }
   `};
 `;
@@ -69,6 +72,11 @@ const AppHeaderNavList = styled.ul`
   margin: 0;
   list-style: none;
   align-items: center;
+`;
+
+const IconContainer = styled.span`
+  margin-right: 16px;
+  height: 50px;
 `;
 
 class HeaderComponent extends React.Component {
@@ -121,7 +129,12 @@ class HeaderComponent extends React.Component {
         <AppHeaderContent>
           <nav>
             <AppHeaderNavList>
-              <li>Logo</li>
+              <li>
+                {/* <img src={earnerLogo} alt="Earner CMS" /> */}
+                <IconContainer>
+                  <EarnerCMS />
+                </IconContainer>
+              </li>
               <li>
                 <AppHeaderNavLink
                   to="/dashboard"
